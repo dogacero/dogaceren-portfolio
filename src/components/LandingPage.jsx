@@ -3,7 +3,7 @@ import AnimatedBackground from './AnimatedBackground';
 import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
-const LEBENSLAUF_URL = 'https://github.com/dogacero/Doga';
+const LEBENSLAUF_URL = 'https://github.com/dogacero?tab=repositories';
 
 const LandingPage = () => {
   return (
@@ -13,10 +13,9 @@ const LandingPage = () => {
       <header className="landing-hero">
         <h1>Doga Ceren Bozkurt</h1>
         <p className="tagline">
-          Ich begeistere mich für Künstliche Intelligenz, Machine Learning und moderne Web-Technologien.
-          Als Studentin der Molekularen und Technischen Medizin verbinde ich Life Sciences mit
-          React, Cursor und KI-Tools – und setze React bis in die letzte Komponente ein.
+          Studentin Molekulare und Technische Medizin. Interessen: KI, Machine Learning, React und Web-Entwicklung.
         </p>
+        <p className="skills-line">React · JavaScript · Cursor · R</p>
       </header>
 
       <section className="landing-contact">
@@ -29,9 +28,6 @@ const LandingPage = () => {
           <li>
             <strong>Telefon:</strong>{' '}
             <a href="tel:+4915788721875">+49 1578 8721875</a>
-          </li>
-          <li>
-            <strong>Adresse:</strong> Pestalozzistraße 19, Villingen-Schwenningen, Deutschland
           </li>
         </ul>
       </section>

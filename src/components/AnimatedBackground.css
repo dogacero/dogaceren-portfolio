@@ -68,16 +68,22 @@
 .star {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.4);
   transform: translate(-50%, -50%);
   animation: twinkle ease-in-out infinite;
+}
+
+.star.star--glow {
+  opacity: 1;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 1), 0 0 28px rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%) scale(1.4);
 }
 
 @keyframes twinkle {
   0%,
   100% {
-    opacity: 0.4;
+    opacity: 0.65;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
