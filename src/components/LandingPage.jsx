@@ -1,14 +1,21 @@
 import React from 'react';
+import AnimatedBackground from './AnimatedBackground';
 import './LandingPage.css';
+
+const GITHUB_URL = 'https://github.com/dogacero';
+const LEBENSLAUF_URL = 'https://github.com/dogacero/Doga';
 
 const LandingPage = () => {
   return (
     <div className="landing">
+      <AnimatedBackground />
+      <div className="landing-content">
       <header className="landing-hero">
         <h1>Doga Ceren Bozkurt</h1>
         <p className="tagline">
-          Studentin Molekulare und Technische Medizin · Interessen: Künstliche Intelligenz,
-          Machine Learning, Bioinformatik & Web-Entwicklung
+          Ich begeistere mich für Künstliche Intelligenz, Machine Learning und moderne Web-Technologien.
+          Als Studentin der Molekularen und Technischen Medizin verbinde ich Life Sciences mit
+          React, Cursor und KI-Tools – und setze React bis in die letzte Komponente ein.
         </p>
       </header>
 
@@ -33,7 +40,7 @@ const LandingPage = () => {
         <h2>Projekte & Links</h2>
         <div className="link-buttons">
           <a
-            href="https://github.com"
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -41,9 +48,11 @@ const LandingPage = () => {
             GitHub
           </a>
           <a
-            href="#"
+            href={LEBENSLAUF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-secondary"
-            title="Link zur deployten Lebenslauf-App (URL später eintragen)"
+            title="Lebenslauf als React-Projekt auf GitHub"
           >
             Zum Lebenslauf
           </a>
@@ -56,6 +65,7 @@ const LandingPage = () => {
       <footer className="landing-footer">
         <p>Doga Ceren Bozkurt · Portfolio</p>
       </footer>
+      </div>
     </div>
   );
 };

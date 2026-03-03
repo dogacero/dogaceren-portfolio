@@ -1,0 +1,87 @@
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gradient-layer {
+  position: absolute;
+  inset: -50% 0;
+  width: 100%;
+  height: 200%;
+  opacity: 0.4;
+  animation: flowDown 45s linear infinite;
+}
+
+.gradient-layer-1 {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(102, 126, 234, 0.3) 25%,
+    transparent 50%,
+    rgba(118, 75, 162, 0.25) 75%,
+    transparent 100%
+  );
+  animation-delay: 0s;
+}
+
+.gradient-layer-2 {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(147, 112, 219, 0.2) 30%,
+    transparent 60%,
+    rgba(102, 126, 234, 0.2) 90%,
+    transparent 100%
+  );
+  animation-delay: -15s;
+}
+
+.gradient-layer-3 {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 182, 193, 0.15) 20%,
+    transparent 55%,
+    rgba(176, 224, 230, 0.15) 80%,
+    transparent 100%
+  );
+  animation-delay: -30s;
+}
+
+@keyframes flowDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50%);
+  }
+}
+
+.stars-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  transform: translate(-50%, -50%);
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
