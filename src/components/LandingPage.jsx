@@ -3,7 +3,7 @@ import AnimatedBackground from './AnimatedBackground';
 import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
-const LEBENSLAUF_URL = 'https://github.com/dogacero?tab=repositories';
+const LEBENSLAUF_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro/tree/doga';
 
 const LandingPage = () => {
   return (
