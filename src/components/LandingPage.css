@@ -46,6 +46,7 @@
   letter-spacing: 0.05em;
 }
 
+.landing-built,
 .landing-contact,
 .landing-links {
   background: white;
@@ -58,6 +59,22 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.landing-built h2 {
+  color: #2c3e50;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.landing-built p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.landing-built:hover,
 .landing-contact:hover,
 .landing-links:hover {
   transform: translateY(-2px);
@@ -156,6 +173,7 @@
     font-size: 1rem;
   }
 
+  .landing-built,
   .landing-contact,
   .landing-links {
     padding: 1.25rem 1.5rem;

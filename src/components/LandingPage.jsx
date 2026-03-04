@@ -3,7 +3,9 @@ import AnimatedBackground from './AnimatedBackground';
 import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
-const LEBENSLAUF_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro/tree/doga';
+// Live-URL der gehosteten CV-App – nach Azure-Deploy z. B. auf https://cv.deine-domain.de setzen
+const LEBENSLAUF_LIVE_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro/tree/doga';
+const LEBENSLAUF_GITHUB_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro';
 
 const LandingPage = () => {
   return (
@@ -17,6 +19,13 @@ const LandingPage = () => {
         </p>
         <p className="skills-line">React · JavaScript · Cursor · R</p>
       </header>
+
+      <section className="landing-built">
+        <h2>Was ich zuletzt gebaut habe</h2>
+        <p>
+          Diese Portfolio-Webseite habe ich mit React und Vite umgesetzt und dabei mit Cursor als KI-Entwicklungswerkzeug gearbeitet. Außerdem habe ich meinen Lebenslauf als eigene React-App getrennt vom Portfolio aufgesetzt – beide Projekte hoste ich und der Code liegt auf GitHub.
+        </p>
+      </section>
 
       <section className="landing-contact">
         <h2>Kontakt</h2>
@@ -44,17 +53,26 @@ const LandingPage = () => {
             GitHub
           </a>
           <a
-            href={LEBENSLAUF_URL}
+            href={LEBENSLAUF_LIVE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
-            title="Lebenslauf als React-Projekt auf GitHub"
+            title="Lebenslauf als React-App ansehen"
           >
-            Zum Lebenslauf
+            Lebenslauf ansehen
+          </a>
+          <a
+            href={LEBENSLAUF_GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+            title="Lebenslauf-Projekt auf GitHub"
+          >
+            Lebenslauf (GitHub)
           </a>
         </div>
         <p className="link-note">
-          Den Lebenslauf als React-Projekt findest du in meinem GitHub-Repo.
+          Den Lebenslauf kannst du als Live-App ansehen oder den Quellcode auf GitHub einsehen.
         </p>
       </section>
 
