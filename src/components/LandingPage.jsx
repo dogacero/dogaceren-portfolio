@@ -42,22 +42,29 @@ const LandingPage = () => {
         </nav>
 
         {activeTab === 'start' && (
-          <div className="tab-panel">
+          <div className="tab-panel" key="start">
             <header className="landing-hero">
               <h1>Doga Ceren Bozkurt</h1>
+              <span className="hero-badge">Built with Cursor</span>
               <p className="tagline">
-                Studentin Molekulare und Technische Medizin. Interessen: KI, Machine Learning, React und Web-Entwicklung.
+                Entwickle mit Cursor – von Idee zu Code. Studentin Molekulare und Technische Medizin, mit Fokus auf KI, Web-Entwicklung und kleine Tools.
               </p>
-              <p className="skills-line">React · JavaScript · Cursor · R</p>
+              <p className="skills-line">Cursor · React · JavaScript · Vite · R</p>
             </header>
 
             <section className="landing-card landing-built">
-              <h2>Meine Skills</h2>
+              <h2>So arbeite ich</h2>
               <p>
-                Ich entwickle mit KI-Tools wie Cursor und Claude produktiv – von Web-Apps bis zu kleinen Tools.
-                Mit React, JavaScript und Vite baue ich moderne Oberflächen; mit R arbeite ich an Datenanalyse.
-                Ich lerne schnell, baue gerne in der Freizeit an Projekten und halte Code übersichtlich.
+                Ich nutze Cursor (und Tools wie Claude, Copilot) im Alltag: prompten, Code reviewen, iterieren.
+                Mit React, Vite und JavaScript setze ich Web-Apps und kleine Tools schnell um; mit R arbeite ich an Datenanalyse.
+                Ich lerne schnell und baue gerne in der Freizeit an Projekten – Code halte ich übersichtlich.
               </p>
+              <div className="tech-pills">
+                <span className="tech-pill">React</span>
+                <span className="tech-pill">Vite</span>
+                <span className="tech-pill">Cursor</span>
+                <span className="tech-pill">Git</span>
+              </div>
             </section>
 
             <section className="landing-card easter-egg-section">
@@ -69,14 +76,20 @@ const LandingPage = () => {
                 aria-label="Versteckter Bereich"
               />
               {easterEggFound && (
-                <p className="easter-egg-message">Du hast den Easter Egg gefunden.</p>
+                <div className="easter-egg-reveal">
+                  <p className="easter-egg-message">Gefunden – vielleicht mit Cursor? 😉</p>
+                  <div className="easter-egg-terminal">
+                    <div className="easter-egg-terminal-line">&gt; was macht diese seite?</div>
+                    <div className="easter-egg-terminal-line">Portfolio. Gebaut mit Cursor.</div>
+                  </div>
+                </div>
               )}
             </section>
           </div>
         )}
 
         {activeTab === 'kontakt' && (
-          <div className="tab-panel">
+          <div className="tab-panel" key="kontakt">
             <section className="landing-card landing-contact">
               <h2>Kontakt</h2>
               <ul className="contact-list">
@@ -94,20 +107,20 @@ const LandingPage = () => {
         )}
 
         {activeTab === 'projekte' && (
-          <div className="tab-panel">
+          <div className="tab-panel" key="projekte">
             <section className="landing-card landing-projekte">
               <h2>Projekte</h2>
               <ul className="projekte-list">
                 <li>
-                  <strong>Portfolio-Webseite</strong> – Diese Seite: React, Vite, mit Cursor entwickelt. Einfache Tab-Navigation, klare Struktur.
-                  <br />
+                  <strong>Portfolio-Webseite</strong> – Diese Seite: komplett mit Cursor entwickelt – Struktur, React-Komponenten, CSS, Easter Egg.
+                  <p className="projekt-stack">React, Vite, Cursor</p>
                   <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">
                     Portfolio (GitHub)
                   </a>
                 </li>
                 <li>
                   <strong>Lebenslauf als React-App</strong> – Eigenes Projekt, getrennt vom Portfolio. React-basierter Lebenslauf.
-                  <br />
+                  <p className="projekt-stack">React</p>
                   <a href={LEBENSLAUF_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">
                     Lebenslauf (GitHub)
                   </a>
@@ -121,7 +134,7 @@ const LandingPage = () => {
         )}
 
         {activeTab === 'links' && (
-          <div className="tab-panel">
+          <div className="tab-panel" key="links">
             <section className="landing-card landing-links">
               <h2>Links</h2>
               <div className="link-buttons">
@@ -152,6 +165,7 @@ const LandingPage = () => {
 
         <footer className="landing-footer">
           <p>Doga Ceren Bozkurt · Portfolio</p>
+          <p className="footer-stack">Portfolio gebaut mit React, Vite und Cursor.</p>
         </footer>
       </div>
     </div>

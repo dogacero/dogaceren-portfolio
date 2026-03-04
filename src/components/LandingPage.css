@@ -65,6 +65,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: tabFadeIn 0.3s ease;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .landing-hero {
@@ -87,6 +99,19 @@
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(102, 126, 234, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
 }
 
 .landing-hero .skills-line {
@@ -138,6 +163,22 @@
   line-height: 1.7;
 }
 
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-pill {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.12);
+  border-radius: 6px;
+}
+
 .landing-built:hover,
 .landing-contact:hover,
 .landing-links:hover,
@@ -174,6 +215,12 @@
 
 .projekte-list li:last-of-type {
   margin-bottom: 0;
+}
+
+.projekt-stack {
+  margin: 0.35rem 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #7f8c8d;
 }
 
 .projekte-list a {
@@ -221,11 +268,31 @@
   outline-offset: 2px;
 }
 
+.easter-egg-reveal {
+  margin-top: 0.5rem;
+}
+
 .easter-egg-message {
-  margin: 0.5rem 0 0 0;
+  margin: 0 0 0.75rem 0;
   font-size: 1rem;
   color: #667eea;
   font-weight: 500;
+}
+
+.easter-egg-terminal {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #1a1a2e;
+  border-radius: 8px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: #a5d6a7;
+  text-align: left;
+}
+
+.easter-egg-terminal-line {
+  margin: 0;
+  line-height: 1.5;
 }
 
 .landing-contact h2,
@@ -324,6 +391,12 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
+}
+
+.footer-stack {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 @media (max-width: 600px) {
