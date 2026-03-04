@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AnimatedBackground from './AnimatedBackground';
+import Stickers from './Stickers';
 import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
@@ -7,9 +8,9 @@ const LEBENSLAUF_GITHUB_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro'
 
 const TABS = [
   { id: 'start', label: 'Start' },
-  { id: 'kontakt', label: 'Kontakt' },
   { id: 'projekte', label: 'Projekte' },
   { id: 'links', label: 'Links' },
+  { id: 'kontakt', label: 'Kontakt' },
 ];
 
 const LandingPage = () => {
@@ -26,6 +27,7 @@ const LandingPage = () => {
   return (
     <div className="landing">
       <AnimatedBackground />
+      {activeTab === 'start' && <Stickers />}
       <div className="landing-content">
         <nav className="landing-tabs" aria-label="Hauptbereiche">
           {TABS.map((tab) => (
@@ -45,19 +47,19 @@ const LandingPage = () => {
           <div className="tab-panel" key="start">
             <header className="landing-hero">
               <h1>Doga Ceren Bozkurt</h1>
-              <span className="hero-badge">Built with Cursor</span>
               <p className="tagline">
-                Entwickle mit Cursor – von Idee zu Code. Studentin Molekulare und Technische Medizin, mit Fokus auf KI, Web-Entwicklung und kleine Tools.
+                Studentin Molekulare und Technische Medizin, mit Fokus auf KI, Web-Entwicklung und kleine Tools.
               </p>
               <p className="skills-line">Cursor · React · JavaScript · Vite · R</p>
             </header>
+            <div className="cursor-popup">
+              <p>Entwickle mit Cursor – von Idee zu Code.</p>
+            </div>
 
             <section className="landing-card landing-built">
-              <h2>So arbeite ich</h2>
+              <h2>Was habe ich bisher gemacht</h2>
               <p>
-                Ich nutze Cursor (und Tools wie Claude, Copilot) im Alltag: prompten, Code reviewen, iterieren.
-                Mit React, Vite und JavaScript setze ich Web-Apps und kleine Tools schnell um; mit R arbeite ich an Datenanalyse.
-                Ich lerne schnell und baue gerne in der Freizeit an Projekten – Code halte ich übersichtlich.
+                Portfolio-Webseite und Lebenslauf-App mit React und Cursor entwickelt. Web-Apps und kleine Tools mit React, Vite und JavaScript umgesetzt. Datenanalyse mit R. KI-Tools wie Cursor, Claude und Copilot im Alltag genutzt – prompten, reviewen, iterieren.
               </p>
               <div className="tech-pills">
                 <span className="tech-pill">React</span>
@@ -124,6 +126,10 @@ const LandingPage = () => {
                   <a href={LEBENSLAUF_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">
                     Lebenslauf (GitHub)
                   </a>
+                </li>
+                <li>
+                  <strong>Datenanalyse mit R</strong> – Arbeiten mit R für statistische Auswertungen und Datenvisualisierung im Studium.
+                  <p className="projekt-stack">R</p>
                 </li>
               </ul>
               <p className="projekte-note">
