@@ -15,13 +15,10 @@ const TABS = [
 
 const LandingPage = () => {
   const [activeTab, setActiveTab] = useState('start');
-  const [easterEggClicks, setEasterEggClicks] = useState(0);
   const [easterEggFound, setEasterEggFound] = useState(false);
 
   const handleEasterEggClick = () => {
-    const next = easterEggClicks + 1;
-    setEasterEggClicks(next);
-    if (next >= 5 && !easterEggFound) setEasterEggFound(true);
+    setEasterEggFound(true);
   };
 
   return (
@@ -53,7 +50,7 @@ const LandingPage = () => {
               <p className="skills-line">Cursor · React · JavaScript · Vite · R</p>
             </header>
             <div className="cursor-popup">
-              <p>Entwickle mit Cursor – von Idee zu Code.</p>
+              <p>✨ Entwickle mit Cursor – von Idee zu Code! 🚀</p>
             </div>
 
             <section className="landing-card landing-built">
@@ -70,14 +67,16 @@ const LandingPage = () => {
             </section>
 
             <section className="landing-card easter-egg-section">
-              <p className="easter-egg-hint">?</p>
-              <button
-                type="button"
-                className="easter-egg-trigger"
-                onClick={handleEasterEggClick}
-                aria-label="Versteckter Bereich"
-              />
-              {easterEggFound && (
+              {!easterEggFound ? (
+                <button
+                  type="button"
+                  className="easter-egg-button"
+                  onClick={handleEasterEggClick}
+                  aria-label="Easter Egg entdecken"
+                >
+                  ?
+                </button>
+              ) : (
                 <div className="easter-egg-reveal">
                   <p className="easter-egg-message">Gefunden – vielleicht mit Cursor? 😉</p>
                   <div className="easter-egg-terminal">
