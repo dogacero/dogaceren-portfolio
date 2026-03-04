@@ -5,6 +5,7 @@ import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
 const LEBENSLAUF_GITHUB_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro';
+const LINKEDIN_URL = 'https://linkedin.com/in/your-profile'; // TODO: Replace with actual LinkedIn URL
 
 const TABS = [
   { id: 'start', label: 'Start' },
@@ -45,9 +46,9 @@ const LandingPage = () => {
             <header className="landing-hero">
               <h1>Doga Ceren Bozkurt</h1>
               <p className="tagline">
-                Studentin Molekulare und Technische Medizin, mit Fokus auf KI, Web-Entwicklung und kleine Tools.
+                Studentin Molekulare und Technische Medizin, mit Interesse auf KI, Web-Entwicklung und kleine Tools.
               </p>
-              <p className="skills-line">Cursor · React · JavaScript · Vite · R</p>
+              <p className="skills-line">Cursor · React · JavaScript · Vite · R · ... more to come</p>
             </header>
             <div className="cursor-popup">
               <p>✨ Entwickle mit Cursor – von Idee zu Code! 🚀</p>
@@ -56,14 +57,8 @@ const LandingPage = () => {
             <section className="landing-card landing-built">
               <h2>Was habe ich bisher gemacht</h2>
               <p>
-                Portfolio-Webseite und Lebenslauf-App mit React und Cursor entwickelt. Web-Apps und kleine Tools mit React, Vite und JavaScript umgesetzt. Datenanalyse mit R. KI-Tools wie Cursor, Claude und Copilot im Alltag genutzt – prompten, reviewen, iterieren.
+                Portfolio-Webseite und Lebenslauf-App mit React und Cursor entwickelt. Web-Apps und kleine Tools mit React, Vite und JavaScript umgesetzt. KI-Tools wie Cursor, Claude und Copilot im Alltag genutzt – prompten, reviewen, iterieren. Aktuell entwickle ich eine E-Commerce Web App – noch in Arbeit (under construction).
               </p>
-              <div className="tech-pills">
-                <span className="tech-pill">React</span>
-                <span className="tech-pill">Vite</span>
-                <span className="tech-pill">Cursor</span>
-                <span className="tech-pill">Git</span>
-              </div>
             </section>
 
             <section className="landing-card easter-egg-section">
@@ -98,10 +93,6 @@ const LandingPage = () => {
                 <li>
                   <strong>E-Mail:</strong>{' '}
                   <a href="mailto:dcerenbozkurt@gmail.com">dcerenbozkurt@gmail.com</a>
-                </li>
-                <li>
-                  <strong>Telefon:</strong>{' '}
-                  <a href="tel:+4915788721875">+49 1578 8721875</a>
                 </li>
               </ul>
             </section>
@@ -151,6 +142,15 @@ const LandingPage = () => {
                   className="btn btn-primary"
                 >
                   GitHub-Profil
+                </a>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                  title="LinkedIn-Profil"
+                >
+                  LinkedIn
                 </a>
                 <a
                   href={LEBENSLAUF_GITHUB_URL}
