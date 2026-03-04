@@ -10,11 +10,61 @@
 
 .landing-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  pointer-events: auto;
+}
+
+/* Tab bar */
+.landing-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.landing-tabs button {
+  padding: 0.6rem 1.2rem;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.landing-tabs button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.landing-tabs button.active {
+  background: rgba(255, 255, 255, 0.95);
+  color: #667eea;
+  border-color: white;
+}
+
+.landing-tabs button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.tab-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .landing-hero {
@@ -46,9 +96,23 @@
   letter-spacing: 0.05em;
 }
 
+.landing-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
 .landing-built,
 .landing-contact,
-.landing-links {
+.landing-links,
+.landing-projekte,
+.easter-egg-section {
   background: white;
   border-radius: 12px;
   padding: 1.75rem 2rem;
@@ -76,9 +140,92 @@
 
 .landing-built:hover,
 .landing-contact:hover,
-.landing-links:hover {
+.landing-links:hover,
+.landing-projekte:hover,
+.easter-egg-section:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
+
+.landing-projekte h2,
+.landing-projekte .projekte-list {
+  color: #2c3e50;
+}
+
+.landing-projekte h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.projekte-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.projekte-list li {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.projekte-list li:last-of-type {
+  margin-bottom: 0;
+}
+
+.projekte-list a {
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.projekte-note {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Easter egg */
+.easter-egg-section {
+  text-align: center;
+  min-height: 80px;
+}
+
+.easter-egg-hint {
+  font-size: 1.5rem;
+  color: #bbb;
+  margin: 0 0 0.5rem 0;
+}
+
+.easter-egg-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.easter-egg-trigger:focus-visible {
+  opacity: 1;
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.easter-egg-message {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  color: #667eea;
+  font-weight: 500;
 }
 
 .landing-contact h2,
@@ -113,6 +260,13 @@
   text-decoration: underline;
 }
 
+.contact-list a:focus-visible,
+.link-buttons a:focus-visible,
+.projekte-list a:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
 .link-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -120,12 +274,20 @@
   margin-bottom: 1rem;
 }
 
+.link-buttons a {
+  cursor: pointer;
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -173,9 +335,21 @@
     font-size: 1rem;
   }
 
+  .landing-tabs {
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .landing-tabs button {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
   .landing-built,
   .landing-contact,
-  .landing-links {
+  .landing-links,
+  .landing-projekte,
+  .easter-egg-section {
     padding: 1.25rem 1.5rem;
   }
 }
