@@ -78,10 +78,11 @@ const LandingPage = () => {
                 </button>
               ) : (
                 <div className="easter-egg-reveal">
-                  <p className="easter-egg-message">Gefunden – vielleicht mit Cursor? 😉</p>
+                  <p className="easter-egg-message">🎉 You found it!</p>
                   <div className="easter-egg-terminal">
-                    <div className="easter-egg-terminal-line">&gt; was macht diese seite?</div>
-                    <div className="easter-egg-terminal-line">Portfolio. Gebaut mit Cursor.</div>
+                    <div className="easter-egg-terminal-line">&gt; Thank you for clicking!</div>
+                    <div className="easter-egg-terminal-line">This portfolio is developed with Cursor.</div>
+                    <div className="easter-egg-terminal-line">Please enjoy exploring! 🚀</div>
                   </div>
                 </div>
               )}

@@ -124,10 +124,8 @@
 }
 
 .cursor-popup {
-  position: absolute;
-  right: 2rem;
-  top: 8rem;
-  max-width: 220px;
+  max-width: 280px;
+  margin: 1.5rem auto 2rem;
   padding: 1rem 1.2rem;
   background: linear-gradient(135deg, #ffd89b 0%, #ff6e7f 100%);
   border: 4px solid #fff;
@@ -138,36 +136,9 @@
   font-weight: 600;
   color: #fff;
   line-height: 1.5;
-  z-index: 3;
+  text-align: center;
   animation: floatPopUp 3s ease-in-out infinite;
   transform-origin: center;
-}
-
-.cursor-popup::before {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  width: 0;
-  height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 12px solid #fff;
-  filter: drop-shadow(-2px 0 2px rgba(255, 110, 127, 0.3));
-}
-
-.cursor-popup::after {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid #ff6e7f;
 }
 
 @keyframes floatPopUp {
@@ -372,8 +343,8 @@
 }
 
 .easter-egg-terminal-line {
-  margin: 0;
-  line-height: 1.5;
+  margin: 0.25rem 0;
+  line-height: 1.6;
 }
 
 @keyframes popIn {
@@ -500,17 +471,10 @@
   }
   
   .cursor-popup {
-    position: relative;
-    right: auto;
-    top: auto;
     max-width: 100%;
-    margin: 1rem auto 0;
-    animation: floatPopUp 3s ease-in-out infinite;
-  }
-  
-  .cursor-popup::before,
-  .cursor-popup::after {
-    display: none;
+    margin: 1rem auto 1.5rem;
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
   }
 
   .landing-hero .tagline {
