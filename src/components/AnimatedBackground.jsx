@@ -4,7 +4,7 @@ import './AnimatedBackground.css';
 const STAR_COUNT = 70;
 const SEED = 12345;
 const MOUSE_GLOW_RADIUS = 120;
-const SHOOTING_STAR_COUNT = 3;
+const SHOOTING_STAR_INTERVAL = 20000; // 20 Sekunden
 
 function seededRandom(seed) {
   return () => {
@@ -13,24 +13,24 @@ function seededRandom(seed) {
   };
 }
 
-// Sternbild-Koordinaten (in Prozent)
+// Sternbild-Koordinaten (in Prozent) - größer und besser sichtbar
 const CONSTELLATIONS = {
   orion: [
-    { left: 15, top: 20 },
+    { left: 10, top: 25 },
+    { left: 12, top: 30 },
+    { left: 14, top: 35 },
+    { left: 16, top: 30 },
     { left: 18, top: 25 },
-    { left: 20, top: 30 },
-    { left: 22, top: 25 },
-    { left: 25, top: 20 },
-    { left: 20, top: 35 },
+    { left: 14, top: 40 },
   ],
   bigDipper: [
-    { left: 70, top: 15 },
-    { left: 72, top: 18 },
     { left: 75, top: 20 },
-    { left: 78, top: 18 },
-    { left: 80, top: 22 },
-    { left: 82, top: 25 },
-    { left: 85, top: 23 },
+    { left: 78, top: 23 },
+    { left: 81, top: 25 },
+    { left: 84, top: 23 },
+    { left: 87, top: 27 },
+    { left: 90, top: 30 },
+    { left: 93, top: 28 },
   ],
 };
 
@@ -50,35 +50,31 @@ const AnimatedBackground = () => {
     }));
   }, []);
 
-  // Shooting Stars generieren
+  // Shooting Stars generieren - alle 20 Sekunden ein paar
   useEffect(() => {
-    const createShootingStar = () => {
-      const rng = Math.random();
-      const startX = rng * 100;
-      const startY = rng * 30;
-      const delay = rng * 8;
-      
-      return {
-        id: Date.now() + Math.random(),
-        startX,
-        startY,
-        delay,
-      };
+    const createShootingStarGroup = () => {
+      const count = 2 + Math.floor(Math.random() * 2); // 2-3 Stars
+      return Array.from({ length: count }, (_, i) => {
+        const startX = -10; // Start links außerhalb
+        const startY = 10 + Math.random() * 40; // Zwischen 10% und 50% von oben
+        const delay = i * 0.5; // Leicht versetzt
+        
+        return {
+          id: Date.now() + Math.random() + i,
+          startX,
+          startY,
+          delay,
+        };
+      });
     };
 
-    const initialStars = Array.from({ length: SHOOTING_STAR_COUNT }, createShootingStar);
-    setShootingStars(initialStars);
+    // Initiale Gruppe
+    setShootingStars(createShootingStarGroup());
 
+    // Alle 20 Sekunden neue Gruppe
     const interval = setInterval(() => {
-      setShootingStars((prev) => {
-        return prev.map((star) => {
-          if (star.delay <= 0) {
-            return createShootingStar();
-          }
-          return { ...star, delay: star.delay - 0.1 };
-        });
-      });
-    }, 100);
+      setShootingStars(createShootingStarGroup());
+    }, SHOOTING_STAR_INTERVAL);
 
     return () => clearInterval(interval);
   }, []);
