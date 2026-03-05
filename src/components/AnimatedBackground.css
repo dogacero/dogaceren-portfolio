@@ -65,25 +65,24 @@
   inset: 0;
 }
 
-.star {
+.star-icon {
   position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
   transform: translate(-50%, -50%);
   animation: twinkle ease-in-out infinite;
 }
 
-.star.star--glow {
-  opacity: 1;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 1), 0 0 28px rgba(255, 255, 255, 0.6);
-  transform: translate(-50%, -50%) scale(1.4);
+.star-icon--glow {
+  color: rgba(255, 255, 255, 1);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
+  transform: translate(-50%, -50%) scale(1.3);
 }
 
 @keyframes twinkle {
   0%,
   100% {
-    opacity: 0.65;
+    opacity: 0.7;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
@@ -100,16 +99,13 @@
   animation: moonArc 60s linear infinite;
 }
 
-.moon {
+.moon-icon {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.6),
-    0 0 40px rgba(255, 255, 255, 0.4),
-    inset -20px 0 0 rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
   animation: moonPhase 60s ease-in-out infinite;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes moonArc {
@@ -142,28 +138,16 @@
 
 @keyframes moonPhase {
   0%, 100% {
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 40px rgba(255, 255, 255, 0.4),
-      inset -20px 0 0 rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.7);
   }
   25% {
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 40px rgba(255, 255, 255, 0.4),
-      inset -10px 0 0 rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.85);
   }
   50% {
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 40px rgba(255, 255, 255, 0.4),
-      inset 0 0 0 rgba(0, 0, 0, 0);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(1);
   }
   75% {
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 40px rgba(255, 255, 255, 0.4),
-      inset 10px 0 0 rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.85);
   }
 }
 
@@ -174,16 +158,11 @@
   pointer-events: none;
 }
 
-.constellation-star {
+.constellation-star-icon {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 50%;
-  box-shadow: 
-    0 0 12px rgba(255, 255, 255, 1),
-    0 0 24px rgba(255, 255, 255, 0.8),
-    0 0 36px rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.8));
   transform: translate(-50%, -50%);
   animation: constellationTwinkle 3s ease-in-out infinite;
 }
@@ -207,50 +186,28 @@
 
 @keyframes constellationTwinkle {
   0%, 100% {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: translate(-50%, -50%) scale(1.4);
   }
 }
 
-/* Shooting Stars - Pfeile */
-.shooting-star-arrow {
+/* Shooting Stars - mit Icons */
+.shooting-star-icon {
   position: absolute;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
   transform-origin: center;
-  animation: shootArrow 1.5s ease-out forwards;
+  transform: translate(-50%, -50%);
+  animation: shootStarIcon 1.5s ease-out forwards;
   opacity: 0;
 }
 
-.arrow-head {
-  width: 0;
-  height: 0;
-  border-left: 8px solid rgba(255, 255, 255, 0.9);
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
-}
-
-.arrow-tail {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-}
-
-@keyframes shootArrow {
+@keyframes shootStarIcon {
   0% {
     opacity: 0;
     transform: translate(0, 0) rotate(var(--angle, 45deg)) scale(0.5);

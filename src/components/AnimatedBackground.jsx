@@ -1,4 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import { FaStar, FaMoon } from 'react-icons/fa';
+import { BsStarFill } from 'react-icons/bs';
+import Confetti from 'react-confetti';
 import './AnimatedBackground.css';
 
 const STAR_COUNT = 70;
@@ -37,6 +40,8 @@ const CONSTELLATIONS = {
 const AnimatedBackground = () => {
   const [mouse, setMouse] = useState({ x: -1000, y: -1000 });
   const [shootingStars, setShootingStars] = useState([]);
+  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const [confettiActive, setConfettiActive] = useState(false);
 
   const stars = useMemo(() => {
     const rng = seededRandom(SEED);
@@ -112,23 +117,56 @@ const AnimatedBackground = () => {
     return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Confetti alle 15-25 Sekunden kurz aktivieren
+  useEffect(() => {
+    const triggerConfetti = () => {
+      setConfettiActive(true);
+      setTimeout(() => setConfettiActive(false), 2000);
+    };
+
+    // Erste Confetti nach 5 Sekunden
+    const firstTimeout = setTimeout(triggerConfetti, 5000);
+
+    const scheduleNext = () => {
+      const delay = 15000 + Math.random() * 10000; // 15-25 Sekunden
+      setTimeout(() => {
+        triggerConfetti();
+        scheduleNext();
+      }, delay);
+    };
+
+    scheduleNext();
+
+    return () => {
+      clearTimeout(firstTimeout);
+    };
+  }, []);
+
   return (
     <div className="animated-bg" aria-hidden="true">
       <div className="gradient-layer gradient-layer-1" />
       <div className="gradient-layer gradient-layer-2" />
       <div className="gradient-layer gradient-layer-3" />
       
-      {/* Mond */}
+      {/* Mond mit Icon */}
       <div className="moon-container">
-        <div className="moon"></div>
+        <FaMoon className="moon-icon" />
       </div>
 
       {/* Sternbilder */}
       <div className="constellation constellation-orion">
         {CONSTELLATIONS.orion.map((star, idx) => (
-          <span
+          <BsStarFill
             key={`orion-${idx}`}
-            className="constellation-star"
+            className="constellation-star-icon"
             style={{
               left: `${star.left}%`,
               top: `${star.top}%`,
@@ -161,9 +199,9 @@ const AnimatedBackground = () => {
 
       <div className="constellation constellation-bigdipper">
         {CONSTELLATIONS.bigDipper.map((star, idx) => (
-          <span
+          <BsStarFill
             key={`dipper-${idx}`}
-            className="constellation-star"
+            className="constellation-star-icon"
             style={{
               left: `${star.left}%`,
               top: `${star.top}%`,
@@ -194,21 +232,18 @@ const AnimatedBackground = () => {
         })}
       </div>
 
-      {/* Shooting Stars - 2 Pfeile parallel */}
+      {/* Shooting Stars - mit Icons */}
       {shootingStars.map((star) => (
-        <div
+        <FaStar
           key={star.id}
-          className="shooting-star-arrow"
+          className="shooting-star-icon"
           style={{
             left: `${star.startX}%`,
             top: `${star.startY}%`,
             '--angle': `${star.angle}deg`,
             animationDelay: `${star.delay}s`,
           }}
-        >
-          <div className="arrow-head"></div>
-          <div className="arrow-tail"></div>
-        </div>
+        />
       ))}
 
       {/* Kleine weiße Striche im Hintergrund */}
@@ -227,7 +262,7 @@ const AnimatedBackground = () => {
         ))}
       </div>
 
-      {/* Normale Sterne */}
+      {/* Normale Sterne mit Icons */}
       <div className="stars-layer">
         {stars.map((star) => {
           const starX = (star.left / 100) * window.innerWidth;
@@ -235,14 +270,13 @@ const AnimatedBackground = () => {
           const dist = Math.hypot(mouse.x - starX, mouse.y - starY);
           const near = dist < MOUSE_GLOW_RADIUS;
           return (
-            <span
+            <FaStar
               key={star.id}
-              className={`star ${near ? 'star--glow' : ''}`}
+              className={`star-icon ${near ? 'star-icon--glow' : ''}`}
               style={{
                 left: `${star.left}%`,
                 top: `${star.top}%`,
-                width: `${star.size}px`,
-                height: `${star.size}px`,
+                fontSize: `${star.size * 2}px`,
                 animationDelay: `${star.delay}s`,
                 animationDuration: `${star.duration}s`,
               }}
@@ -250,6 +284,18 @@ const AnimatedBackground = () => {
           );
         })}
       </div>
+
+      {/* Confetti */}
+      {confettiActive && (
+        <Confetti
+          width={windowSize.width}
+          height={windowSize.height}
+          recycle={false}
+          numberOfPieces={50}
+          gravity={0.1}
+          colors={['#667eea', '#764ba2', '#ffd89b', '#ff6e7f', '#ffffff']}
+        />
+      )}
     </div>
   );
 };
