@@ -11,14 +11,32 @@
   padding: 0.5rem 0.75rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(102, 126, 234, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.95);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   white-space: nowrap;
 }
 
+.sticker-coding {
+  background: rgba(102, 126, 234, 0.3);
+  border: 1px solid rgba(102, 126, 234, 0.5);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.sticker-ai {
+  background: rgba(255, 110, 127, 0.3);
+  border: 1px solid rgba(255, 110, 127, 0.5);
+  box-shadow: 0 2px 8px rgba(255, 110, 127, 0.3);
+}
+
+.sticker-easter {
+  background: rgba(255, 216, 155, 0.3);
+  border: 1px solid rgba(255, 216, 155, 0.5);
+  box-shadow: 0 2px 8px rgba(255, 216, 155, 0.3);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Coding-Humor links */
 .sticker-1 {
   top: 15%;
   left: 5%;
@@ -27,36 +45,39 @@
 }
 
 .sticker-2 {
-  top: 25%;
-  right: 8%;
+  top: 30%;
+  left: 3%;
   animation: float 4s ease-in-out infinite;
   animation-delay: 0.5s;
 }
 
 .sticker-3 {
   top: 50%;
-  left: 3%;
+  left: 7%;
   animation: float 4s ease-in-out infinite;
   animation-delay: 1s;
 }
 
+/* KI-Humor rechts */
 .sticker-4 {
-  top: 60%;
+  top: 20%;
   right: 5%;
   animation: float 4s ease-in-out infinite;
   animation-delay: 1.5s;
 }
 
 .sticker-5 {
-  top: 75%;
-  left: 7%;
+  top: 40%;
+  right: 8%;
   animation: float 4s ease-in-out infinite;
   animation-delay: 2s;
 }
 
+/* Easter Eggs unten */
 .sticker-6 {
-  top: 40%;
-  right: 3%;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
   animation: float 4s ease-in-out infinite;
   animation-delay: 2.5s;
 }
