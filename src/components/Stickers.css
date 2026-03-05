@@ -76,8 +76,7 @@
 /* Easter Eggs unten */
 .sticker-6 {
   top: 75%;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 10%;
   animation: float 4s ease-in-out infinite;
   animation-delay: 2.5s;
 }
