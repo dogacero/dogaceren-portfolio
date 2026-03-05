@@ -98,6 +98,8 @@
   width: 80px;
   height: 80px;
   animation: moonArc 60s linear infinite;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .moon-outer {
