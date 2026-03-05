@@ -1,6 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { FaStar, FaMoon } from 'react-icons/fa';
-import Confetti from 'react-confetti';
 import './AnimatedBackground.css';
 
 const STAR_COUNT = 70;
@@ -19,7 +18,6 @@ function seededRandom(seed) {
 const AnimatedBackground = () => {
   const [mouse, setMouse] = useState({ x: -1000, y: -1000 });
   const [shootingStars, setShootingStars] = useState([]);
-  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   const stars = useMemo(() => {
     const rng = seededRandom(SEED);
@@ -95,13 +93,6 @@ const AnimatedBackground = () => {
     return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
 
   return (
@@ -110,9 +101,10 @@ const AnimatedBackground = () => {
       <div className="gradient-layer gradient-layer-2" />
       <div className="gradient-layer gradient-layer-3" />
       
-      {/* Mond mit Icon */}
+      {/* Mond - grauer Kreis mit bewegendem weißen Kreis */}
       <div className="moon-container">
-        <FaMoon className="moon-icon" />
+        <div className="moon-outer"></div>
+        <div className="moon-inner"></div>
       </div>
 
 
@@ -170,15 +162,6 @@ const AnimatedBackground = () => {
         })}
       </div>
 
-      {/* Confetti - kontinuierlich */}
-      <Confetti
-        width={windowSize.width}
-        height={windowSize.height}
-        recycle={true}
-        numberOfPieces={200}
-        gravity={0.1}
-        colors={['#667eea', '#764ba2', '#ffd89b', '#ff6e7f', '#ffffff', '#a78bfa']}
-      />
     </div>
   );
 };
