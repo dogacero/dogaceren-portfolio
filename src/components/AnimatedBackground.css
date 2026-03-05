@@ -138,63 +138,53 @@
 }
 
 @keyframes moonPhase {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.7);
+  0% {
+    /* Neumond */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.1);
+    clip-path: circle(0% at 50% 50%);
+  }
+  12.5% {
+    /* Zunehmende Sichel */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.4);
+    clip-path: circle(25% at 30% 50%);
   }
   25% {
+    /* Zunehmender Halbmond */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.7);
+    clip-path: circle(50% at 0% 50%);
+  }
+  37.5% {
+    /* Zunehmender Gibbous */
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.85);
+    clip-path: circle(75% at 20% 50%);
   }
   50% {
+    /* Vollmond */
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(1);
+    clip-path: circle(100%);
+  }
+  62.5% {
+    /* Abnehmender Gibbous */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.85);
+    clip-path: circle(75% at 80% 50%);
   }
   75% {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.85);
+    /* Abnehmender Halbmond */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.7);
+    clip-path: circle(50% at 100% 50%);
+  }
+  87.5% {
+    /* Abnehmende Sichel */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.4);
+    clip-path: circle(25% at 70% 50%);
+  }
+  100% {
+    /* Zurück zu Neumond */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) brightness(0.1);
+    clip-path: circle(0% at 50% 50%);
   }
 }
 
-/* Sternbilder */
-.constellation {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.constellation-star-icon {
-  position: absolute;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 1);
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
-  transform: translate(-50%, -50%);
-  animation: constellationTwinkle 3s ease-in-out infinite;
-}
-
-.constellation-line {
-  position: absolute;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
-  transform-origin: left center;
-  transform: translate(-50%, -50%);
-}
-
-.constellation-orion .constellation-star {
-  animation-delay: 0s;
-}
-
-.constellation-bigdipper .constellation-star {
-  animation-delay: 1.5s;
-}
-
-@keyframes constellationTwinkle {
-  0%, 100% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.4);
-  }
-}
 
 /* Shooting Stars - mit Icons */
 .shooting-star-icon {
