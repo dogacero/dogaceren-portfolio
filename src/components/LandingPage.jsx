@@ -5,7 +5,7 @@ import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
 const LEBENSLAUF_GITHUB_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro';
-const LINKEDIN_URL = 'https://linkedin.com/in/your-profile'; // TODO: Replace with actual LinkedIn URL
+const LINKEDIN_URL = 'https://www.linkedin.com/in/doga-ceren-bozkurt';
 
 const TABS = [
   { id: 'start', label: 'Start' },
@@ -57,7 +57,16 @@ const LandingPage = () => {
             <section className="landing-card landing-built">
               <h2>Was habe ich bisher gemacht</h2>
               <p>
-                Portfolio-Webseite und Lebenslauf-App mit React und Cursor entwickelt. Web-Apps und kleine Tools mit React, Vite und JavaScript umgesetzt. KI-Tools wie Cursor, Claude und Copilot im Alltag genutzt – prompten, reviewen, iterieren. Aktuell entwickle ich eine E-Commerce Web App – noch in Arbeit (under construction).
+                Portfolio‑Webseite und Lebenslauf‑App mit React umgesetzt.
+              </p>
+              <p>
+                Verschiedene Web‑Apps und kleine Tools mit React, Vite und JavaScript entwickelt.
+              </p>
+              <p>
+                KI‑Tools wie Cursor, Claude und Copilot regelmäßig für Entwicklung und Lernen genutzt.
+              </p>
+              <p>
+                Aktuell arbeite ich an einer E‑Commerce‑Web‑App (noch in Entwicklung).
               </p>
             </section>
 

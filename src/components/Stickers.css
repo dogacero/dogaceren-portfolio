@@ -29,21 +29,21 @@
 .sticker-2 {
   top: 25%;
   right: 8%;
-  animation: floatHorizontal 5s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 0.5s;
 }
 
 .sticker-3 {
   top: 50%;
   left: 3%;
-  animation: float 4.5s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 1s;
 }
 
 .sticker-4 {
   top: 60%;
   right: 5%;
-  animation: rotateSlow 6s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 1.5s;
 }
 
@@ -57,7 +57,7 @@
 .sticker-6 {
   top: 35%;
   right: 12%;
-  animation: floatHorizontal 5.5s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 2.5s;
 }
 
@@ -72,21 +72,21 @@
 .sticker-8 {
   top: 45%;
   left: 10%;
-  animation: rotateSlow 6s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 3.5s;
 }
 
 .sticker-9 {
   top: 70%;
   right: 15%;
-  animation: floatHorizontal 5s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 4s;
 }
 
 .sticker-10 {
   top: 20%;
   right: 3%;
-  animation: float 4.5s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   animation-delay: 4.5s;
 }
 
@@ -102,36 +102,6 @@
   }
   75% {
     transform: translateY(-12px) rotate(1deg);
-  }
-}
-
-@keyframes floatHorizontal {
-  0%, 100% {
-    transform: translateX(0) translateY(0);
-  }
-  25% {
-    transform: translateX(8px) translateY(-5px);
-  }
-  50% {
-    transform: translateX(-5px) translateY(-8px);
-  }
-  75% {
-    transform: translateX(6px) translateY(-3px);
-  }
-}
-
-@keyframes rotateSlow {
-  0%, 100% {
-    transform: rotate(0deg) translateY(0);
-  }
-  25% {
-    transform: rotate(3deg) translateY(-6px);
-  }
-  50% {
-    transform: rotate(-2deg) translateY(-4px);
-  }
-  75% {
-    transform: rotate(2deg) translateY(-8px);
   }
 }
 
