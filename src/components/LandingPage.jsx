@@ -46,14 +46,10 @@ const LandingPage = () => {
             <header className="landing-hero">
               <h1>Doga Ceren Bozkurt</h1>
               <p className="tagline">
-                Studentin Molekulare und Technische Medizin, mit Interesse auf KI, Web-Entwicklung und kleine Tools.
+                Studentin Molekulare und Technische Medizin, mit Interesse an KI, Web-Entwicklung und kleinen Tools.
               </p>
               <p className="skills-line">Cursor · React · JavaScript · Vite · R · ... more to come</p>
             </header>
-            <div className="cursor-popup">
-              <p>✨ Entwickle mit Cursor – von Idee zu Code! 🚀</p>
-            </div>
-
             <section className="landing-card landing-about">
               <h2>Über mich</h2>
               <p>
@@ -91,18 +87,12 @@ const LandingPage = () => {
 
             <section className="landing-card landing-built">
               <h2>Was habe ich bisher gemacht</h2>
-              <p>
-                Portfolio‑Webseite und Lebenslauf‑App mit React umgesetzt.
-              </p>
-              <p>
-                Verschiedene Web‑Apps und kleine Tools mit React, Vite und JavaScript entwickelt.
-              </p>
-              <p>
-                KI‑Tools wie Cursor, Claude und Copilot regelmäßig für Entwicklung und Lernen genutzt.
-              </p>
-              <p>
-                Aktuell arbeite ich an einer E‑Commerce‑Web‑App (noch in Entwicklung).
-              </p>
+              <ul className="achievements-list">
+                <li>Portfolio‑Webseite und Lebenslauf‑App mit React umgesetzt.</li>
+                <li>Verschiedene Web‑Apps und kleine Tools mit React, Vite und JavaScript entwickelt.</li>
+                <li>KI‑Tools wie Cursor, Claude und Copilot regelmäßig für Entwicklung und Lernen genutzt.</li>
+                <li>Aktuell arbeite ich an einer E‑Commerce‑Web‑App (noch in Entwicklung).</li>
+              </ul>
             </section>
 
             <section className="landing-card easter-egg-section">
@@ -133,7 +123,7 @@ const LandingPage = () => {
           <div className="tab-panel" key="kontakt">
             <section className="landing-card landing-contact">
               <h2>Kontakt</h2>
-              <p className="contact-intro">Ich freue mich auf deine Nachricht!</p>
+              <p className="contact-intro">Ich freue mich auf Ihre Nachricht!</p>
               <div className="contact-email">
                 <strong>E-Mail:</strong>{' '}
                 <a href="mailto:dcerenbozkurt@gmail.com">dcerenbozkurt@gmail.com</a>
@@ -167,7 +157,7 @@ const LandingPage = () => {
               <div className="projekte-grid">
                 <div className="projekt-card">
                   <h3>Portfolio-Webseite</h3>
-                  <p>Diese Seite: komplett mit Cursor entwickelt – Struktur, React-Komponenten, CSS, Easter Egg.</p>
+                  <p>Diese Seite: komplett mit Cursor entwickelt – Struktur, React-Komponenten, CSS.</p>
                   <div className="projekt-stack-tags">
                     <span className="stack-tag">React</span>
                     <span className="stack-tag">Vite</span>

@@ -97,10 +97,12 @@
 }
 
 .landing-hero .tagline {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.7;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 0.5rem;
 }
 
 .hero-badge {
@@ -123,38 +125,6 @@
   letter-spacing: 0.05em;
 }
 
-.cursor-popup {
-  max-width: 280px;
-  margin: 1.5rem auto 2rem;
-  padding: 1rem 1.2rem;
-  background: linear-gradient(135deg, #ffd89b 0%, #ff6e7f 100%);
-  border: 4px solid #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(255, 110, 127, 0.4), 
-              0 0 0 2px rgba(255, 255, 255, 0.3);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.5;
-  text-align: center;
-  animation: floatPopUp 3s ease-in-out infinite;
-  transform-origin: center;
-}
-
-@keyframes floatPopUp {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-4px) rotate(-1deg);
-  }
-  75% {
-    transform: translateY(-10px) rotate(0.5deg);
-  }
-}
 
 .landing-card {
   background: rgba(255, 255, 255, 0.92);
@@ -203,6 +173,34 @@
   font-size: 1.05rem;
   color: #555;
   line-height: 1.7;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievements-list li {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.achievements-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.achievements-list li:last-child {
+  margin-bottom: 0;
 }
 
 .landing-skills {
@@ -553,12 +551,6 @@
     font-size: 2.5rem;
   }
   
-  .cursor-popup {
-    max-width: 100%;
-    margin: 1rem auto 1.5rem;
-    padding: 0.9rem 1rem;
-    font-size: 0.9rem;
-  }
 
   .landing-hero .tagline {
     font-size: 1rem;

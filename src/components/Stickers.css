@@ -54,6 +54,13 @@
   animation-delay: 2s;
 }
 
+.sticker-6 {
+  top: 40%;
+  right: 3%;
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
 
 @keyframes float {
   0%, 100% {
@@ -81,11 +88,7 @@
   .sticker-3,
   .sticker-4,
   .sticker-5,
-  .sticker-6,
-  .sticker-7,
-  .sticker-8,
-  .sticker-9,
-  .sticker-10 {
+  .sticker-6 {
     display: none;
   }
 }
