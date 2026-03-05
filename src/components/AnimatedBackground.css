@@ -95,10 +95,9 @@
 /* Mond */
 .moon-container {
   position: absolute;
-  top: 8%;
   width: 80px;
   height: 80px;
-  animation: moonTravel 30s linear infinite;
+  animation: moonArc 60s linear infinite;
 }
 
 .moon {
@@ -110,29 +109,34 @@
     0 0 20px rgba(255, 255, 255, 0.6),
     0 0 40px rgba(255, 255, 255, 0.4),
     inset -20px 0 0 rgba(0, 0, 0, 0.3);
-  animation: moonPhase 30s ease-in-out infinite;
+  animation: moonPhase 60s ease-in-out infinite;
 }
 
-@keyframes moonTravel {
+@keyframes moonArc {
   0% {
-    left: 5%;
-    transform: translateY(0);
+    left: 0%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   25% {
-    left: 30%;
-    transform: translateY(-10px);
+    left: 25%;
+    top: 25%;
+    transform: translate(-50%, -50%);
   }
   50% {
-    left: 60%;
-    transform: translateY(0);
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
   }
   75% {
-    left: 85%;
-    transform: translateY(10px);
+    left: 75%;
+    top: 25%;
+    transform: translate(-50%, -50%);
   }
   100% {
-    left: 5%;
-    transform: translateY(0);
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -172,14 +176,14 @@
 
 .constellation-star {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: rgba(255, 255, 255, 1);
   border-radius: 50%;
   box-shadow: 
-    0 0 10px rgba(255, 255, 255, 1),
-    0 0 20px rgba(255, 255, 255, 0.6),
-    0 0 30px rgba(255, 255, 255, 0.3);
+    0 0 12px rgba(255, 255, 255, 1),
+    0 0 24px rgba(255, 255, 255, 0.8),
+    0 0 36px rgba(255, 255, 255, 0.5);
   transform: translate(-50%, -50%);
   animation: constellationTwinkle 3s ease-in-out infinite;
 }
@@ -187,8 +191,8 @@
 .constellation-line {
   position: absolute;
   height: 2px;
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
   transform-origin: left center;
   transform: translate(-50%, -50%);
 }
@@ -212,39 +216,70 @@
   }
 }
 
-/* Shooting Stars */
-.shooting-star {
+/* Shooting Stars - Pfeile */
+.shooting-star-arrow {
   position: absolute;
-  width: 3px;
-  height: 120px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0.5),
-    transparent
-  );
-  box-shadow: 
-    0 0 15px rgba(255, 255, 255, 1),
-    0 0 30px rgba(255, 255, 255, 0.6);
-  transform-origin: top center;
-  animation: shootStar 2s linear forwards;
+  transform-origin: center;
+  animation: shootArrow 1.5s ease-out forwards;
   opacity: 0;
 }
 
-@keyframes shootStar {
+.arrow-head {
+  width: 0;
+  height: 0;
+  border-left: 8px solid rgba(255, 255, 255, 0.9);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+
+.arrow-tail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes shootArrow {
   0% {
     opacity: 0;
-    transform: translateX(0) translateY(0) rotate(45deg);
+    transform: translate(0, 0) rotate(var(--angle, 45deg)) scale(0.5);
   }
-  5% {
+  20% {
     opacity: 1;
+    transform: translate(20px, 20px) rotate(var(--angle, 45deg)) scale(1);
   }
-  95% {
+  80% {
     opacity: 1;
+    transform: translate(80px, 80px) rotate(var(--angle, 45deg)) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translateX(calc(100vw + 200px)) translateY(calc(100vw + 200px)) rotate(45deg);
+    transform: translate(120px, 120px) rotate(var(--angle, 45deg)) scale(0.8);
   }
+}
+
+/* Kleine weiße Striche im Hintergrund */
+.background-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.background-line {
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  transform-origin: center;
 }

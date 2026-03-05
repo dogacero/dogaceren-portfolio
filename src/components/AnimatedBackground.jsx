@@ -13,24 +13,24 @@ function seededRandom(seed) {
   };
 }
 
-// Sternbild-Koordinaten (in Prozent) - größer und besser sichtbar
+// Sternbild-Koordinaten (in Prozent) - besser sichtbar
 const CONSTELLATIONS = {
   orion: [
-    { left: 10, top: 25 },
-    { left: 12, top: 30 },
+    { left: 8, top: 30 },
+    { left: 10, top: 35 },
+    { left: 12, top: 40 },
     { left: 14, top: 35 },
     { left: 16, top: 30 },
-    { left: 18, top: 25 },
-    { left: 14, top: 40 },
+    { left: 12, top: 45 },
   ],
   bigDipper: [
-    { left: 75, top: 20 },
-    { left: 78, top: 23 },
-    { left: 81, top: 25 },
-    { left: 84, top: 23 },
-    { left: 87, top: 27 },
-    { left: 90, top: 30 },
-    { left: 93, top: 28 },
+    { left: 72, top: 25 },
+    { left: 75, top: 28 },
+    { left: 78, top: 30 },
+    { left: 81, top: 28 },
+    { left: 84, top: 32 },
+    { left: 87, top: 35 },
+    { left: 90, top: 33 },
   ],
 };
 
@@ -50,33 +50,60 @@ const AnimatedBackground = () => {
     }));
   }, []);
 
-  // Shooting Stars generieren - alle 20 Sekunden ein paar
+  // Shooting Stars generieren - 2 Pfeile, random auftauchen
   useEffect(() => {
-    const createShootingStarGroup = () => {
-      const count = 2 + Math.floor(Math.random() * 2); // 2-3 Stars
-      return Array.from({ length: count }, (_, i) => {
-        const startX = -10; // Start links außerhalb
-        const startY = 10 + Math.random() * 40; // Zwischen 10% und 50% von oben
-        const delay = i * 0.5; // Leicht versetzt
-        
-        return {
-          id: Date.now() + Math.random() + i,
-          startX,
-          startY,
-          delay,
-        };
-      });
+    const createShootingStar = () => {
+      const rng = Math.random();
+      const startX = 20 + rng * 60; // Random zwischen 20% und 80%
+      const startY = 15 + rng * 50; // Random zwischen 15% und 65%
+      const angle = 45 + (rng - 0.5) * 20; // Leicht variierter Winkel
+      const delay = rng * 3;
+      
+      return {
+        id: Date.now() + Math.random(),
+        startX,
+        startY,
+        angle,
+        delay,
+      };
     };
 
-    // Initiale Gruppe
-    setShootingStars(createShootingStarGroup());
+    const createPair = () => {
+      const baseX = 20 + Math.random() * 60;
+      const baseY = 15 + Math.random() * 50;
+      const angle = 45 + (Math.random() - 0.5) * 20;
+      
+      return [
+        {
+          id: Date.now() + Math.random(),
+          startX: baseX,
+          startY: baseY,
+          angle,
+          delay: 0,
+        },
+        {
+          id: Date.now() + Math.random() + 1,
+          startX: baseX + (Math.random() - 0.5) * 5,
+          startY: baseY + (Math.random() - 0.5) * 5,
+          angle: angle + (Math.random() - 0.5) * 5,
+          delay: 0.2,
+        },
+      ];
+    };
 
-    // Alle 20 Sekunden neue Gruppe
-    const interval = setInterval(() => {
-      setShootingStars(createShootingStarGroup());
-    }, SHOOTING_STAR_INTERVAL);
+    // Initiales Paar
+    setShootingStars(createPair());
 
-    return () => clearInterval(interval);
+    // Random Interval zwischen 3-8 Sekunden
+    const scheduleNext = () => {
+      const delay = 3000 + Math.random() * 5000;
+      setTimeout(() => {
+        setShootingStars(createPair());
+        scheduleNext();
+      }, delay);
+    };
+
+    scheduleNext();
   }, []);
 
   useEffect(() => {
@@ -167,18 +194,38 @@ const AnimatedBackground = () => {
         })}
       </div>
 
-      {/* Shooting Stars */}
+      {/* Shooting Stars - 2 Pfeile parallel */}
       {shootingStars.map((star) => (
         <div
           key={star.id}
-          className="shooting-star"
+          className="shooting-star-arrow"
           style={{
             left: `${star.startX}%`,
             top: `${star.startY}%`,
+            '--angle': `${star.angle}deg`,
             animationDelay: `${star.delay}s`,
           }}
-        />
+        >
+          <div className="arrow-head"></div>
+          <div className="arrow-tail"></div>
+        </div>
       ))}
+
+      {/* Kleine weiße Striche im Hintergrund */}
+      <div className="background-lines">
+        {Array.from({ length: 15 }, (_, i) => (
+          <div
+            key={`line-${i}`}
+            className="background-line"
+            style={{
+              left: `${(i * 7) % 100}%`,
+              top: `${(i * 11) % 100}%`,
+              transform: `rotate(${(i * 23) % 360}deg)`,
+              opacity: 0.15 + (i % 3) * 0.05,
+            }}
+          />
+        ))}
+      </div>
 
       {/* Normale Sterne */}
       <div className="stars-layer">
