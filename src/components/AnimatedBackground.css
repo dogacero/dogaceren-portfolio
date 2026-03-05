@@ -114,8 +114,8 @@
 
 .moon-inner {
   position: absolute;
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 
@@ -125,6 +125,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   animation: moonInnerMove 60s ease-in-out infinite;
+  z-index: 1;
 }
 
 @keyframes moonArc {
@@ -157,24 +158,40 @@
 
 @keyframes moonInnerMove {
   0% {
-    /* Links */
-    transform: translate(-150%, -50%);
+    /* Links - komplett sichtbar */
+    transform: translate(-50%, -50%);
+  }
+  12.5% {
+    /* Links-Mitte - beginnt zu verschwinden */
+    transform: translate(-60%, -50%);
   }
   25% {
-    /* Oben */
-    transform: translate(-50%, -150%);
+    /* Oben - halb sichtbar */
+    transform: translate(-50%, -60%);
+  }
+  37.5% {
+    /* Oben-Mitte - zentriert */
+    transform: translate(-50%, -50%);
   }
   50% {
-    /* Rechts */
-    transform: translate(50%, -50%);
+    /* Rechts - komplett sichtbar */
+    transform: translate(-40%, -50%);
+  }
+  62.5% {
+    /* Rechts-Mitte - beginnt zu verschwinden */
+    transform: translate(-50%, -40%);
   }
   75% {
-    /* Unten */
-    transform: translate(-50%, 50%);
+    /* Unten - halb sichtbar */
+    transform: translate(-50%, -40%);
+  }
+  87.5% {
+    /* Unten-Mitte - zentriert */
+    transform: translate(-50%, -50%);
   }
   100% {
     /* Zurück nach links */
-    transform: translate(-150%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 
