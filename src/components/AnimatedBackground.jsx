@@ -262,7 +262,7 @@ const AnimatedBackground = () => {
         ))}
       </div>
 
-      {/* Normale Sterne mit Icons */}
+      {/* Normale Sterne - kleine weiße Punkte */}
       <div className="stars-layer">
         {stars.map((star) => {
           const starX = (star.left / 100) * window.innerWidth;
@@ -270,13 +270,14 @@ const AnimatedBackground = () => {
           const dist = Math.hypot(mouse.x - starX, mouse.y - starY);
           const near = dist < MOUSE_GLOW_RADIUS;
           return (
-            <FaStar
+            <span
               key={star.id}
-              className={`star-icon ${near ? 'star-icon--glow' : ''}`}
+              className={`star ${near ? 'star--glow' : ''}`}
               style={{
                 left: `${star.left}%`,
                 top: `${star.top}%`,
-                fontSize: `${star.size * 2}px`,
+                width: `${star.size}px`,
+                height: `${star.size}px`,
                 animationDelay: `${star.delay}s`,
                 animationDuration: `${star.duration}s`,
               }}
@@ -291,9 +292,9 @@ const AnimatedBackground = () => {
           width={windowSize.width}
           height={windowSize.height}
           recycle={false}
-          numberOfPieces={50}
-          gravity={0.1}
-          colors={['#667eea', '#764ba2', '#ffd89b', '#ff6e7f', '#ffffff']}
+          numberOfPieces={150}
+          gravity={0.08}
+          colors={['#667eea', '#764ba2', '#ffd89b', '#ff6e7f', '#ffffff', '#a78bfa']}
         />
       )}
     </div>
