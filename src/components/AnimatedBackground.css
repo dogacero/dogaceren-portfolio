@@ -160,40 +160,40 @@
 
 @keyframes moonInnerMove {
   0% {
-    /* Neumond - komplett links außerhalb (nicht sichtbar) */
-    transform: translate(-150%, -50%);
+    /* Neumond - komplett rechts außerhalb (nicht sichtbar) */
+    transform: translate(50%, -50%);
   }
   12.5% {
-    /* Zunehmende Sichel - beginnt von links zu erscheinen */
-    transform: translate(-100%, -50%);
+    /* Zunehmende Sichel - beginnt von rechts zu erscheinen */
+    transform: translate(0%, -50%);
   }
   25% {
     /* Zunehmender Halbmond - halb sichtbar */
-    transform: translate(-50%, -50%);
+    transform: translate(-25%, -50%);
   }
   37.5% {
     /* Zunehmender Gibbous - fast voll */
-    transform: translate(-25%, -50%);
+    transform: translate(-40%, -50%);
   }
   50% {
     /* Vollmond - komplett sichtbar (zentriert) */
-    transform: translate(0%, -50%);
+    transform: translate(-50%, -50%);
   }
   62.5% {
     /* Abnehmender Gibbous - beginnt zu verschwinden */
-    transform: translate(-25%, -50%);
+    transform: translate(-40%, -50%);
   }
   75% {
     /* Abnehmender Halbmond - halb sichtbar */
-    transform: translate(-50%, -50%);
+    transform: translate(-25%, -50%);
   }
   87.5% {
-    /* Abnehmende Sichel - verschwindet nach rechts */
-    transform: translate(-100%, -50%);
+    /* Abnehmende Sichel - verschwindet nach links */
+    transform: translate(0%, -50%);
   }
   100% {
     /* Zurück zu Neumond */
-    transform: translate(-150%, -50%);
+    transform: translate(50%, -50%);
   }
 }
 
