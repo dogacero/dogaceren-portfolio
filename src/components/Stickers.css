@@ -54,41 +54,6 @@
   animation-delay: 2s;
 }
 
-.sticker-6 {
-  top: 35%;
-  right: 12%;
-  animation: float 4s ease-in-out infinite;
-  animation-delay: 2.5s;
-}
-
-.sticker-7 {
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: float 4s ease-in-out infinite;
-  animation-delay: 3s;
-}
-
-.sticker-8 {
-  top: 45%;
-  left: 10%;
-  animation: float 4s ease-in-out infinite;
-  animation-delay: 3.5s;
-}
-
-.sticker-9 {
-  top: 70%;
-  right: 15%;
-  animation: float 4s ease-in-out infinite;
-  animation-delay: 4s;
-}
-
-.sticker-10 {
-  top: 20%;
-  right: 3%;
-  animation: float 4s ease-in-out infinite;
-  animation-delay: 4.5s;
-}
 
 @keyframes float {
   0%, 100% {

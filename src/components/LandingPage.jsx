@@ -54,6 +54,41 @@ const LandingPage = () => {
               <p>✨ Entwickle mit Cursor – von Idee zu Code! 🚀</p>
             </div>
 
+            <section className="landing-card landing-about">
+              <h2>Über mich</h2>
+              <p>
+                Als Studentin der Molekularen und Technischen Medizin verbinde ich Medizin, Technologie und KI. 
+                Mich fasziniert die Schnittstelle zwischen Bioinformatik und Web-Entwicklung – besonders die Entwicklung 
+                von Web-Tools für Forschung und die Anwendung von KI in der Stammzellbiologie und Datenanalyse.
+              </p>
+            </section>
+
+            <section className="landing-card landing-skills">
+              <h2>Skills</h2>
+              <div className="skills-grid">
+                <div className="skills-category">
+                  <h3>Tech-Stack</h3>
+                  <div className="skills-tags">
+                    <span className="skill-tag">React</span>
+                    <span className="skill-tag">JavaScript</span>
+                    <span className="skill-tag">Vite</span>
+                    <span className="skill-tag">Git</span>
+                    <span className="skill-tag">Azure</span>
+                    <span className="skill-tag">R</span>
+                  </div>
+                </div>
+                <div className="skills-category">
+                  <h3>KI-Tools</h3>
+                  <div className="skills-tags">
+                    <span className="skill-tag">Cursor</span>
+                    <span className="skill-tag">Claude</span>
+                    <span className="skill-tag">Copilot</span>
+                  </div>
+                  <p className="skills-note">für Code-Review, Debugging, Iteration</p>
+                </div>
+              </div>
+            </section>
+
             <section className="landing-card landing-built">
               <h2>Was habe ich bisher gemacht</h2>
               <p>
@@ -98,40 +133,77 @@ const LandingPage = () => {
           <div className="tab-panel" key="kontakt">
             <section className="landing-card landing-contact">
               <h2>Kontakt</h2>
-              <ul className="contact-list">
-                <li>
-                  <strong>E-Mail:</strong>{' '}
-                  <a href="mailto:dcerenbozkurt@gmail.com">dcerenbozkurt@gmail.com</a>
-                </li>
-              </ul>
+              <p className="contact-intro">Ich freue mich auf deine Nachricht!</p>
+              <div className="contact-email">
+                <strong>E-Mail:</strong>{' '}
+                <a href="mailto:dcerenbozkurt@gmail.com">dcerenbozkurt@gmail.com</a>
+              </div>
+              <div className="contact-buttons">
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  GitHub
+                </a>
+              </div>
             </section>
           </div>
         )}
 
         {activeTab === 'projekte' && (
           <div className="tab-panel" key="projekte">
-            <section className="landing-card landing-projekte">
+            <section className="landing-projekte">
               <h2>Projekte</h2>
-              <ul className="projekte-list">
-                <li>
-                  <strong>Portfolio-Webseite</strong> – Diese Seite: komplett mit Cursor entwickelt – Struktur, React-Komponenten, CSS, Easter Egg.
-                  <p className="projekt-stack">React, Vite, Cursor</p>
+              <div className="projekte-grid">
+                <div className="projekt-card">
+                  <h3>Portfolio-Webseite</h3>
+                  <p>Diese Seite: komplett mit Cursor entwickelt – Struktur, React-Komponenten, CSS, Easter Egg.</p>
+                  <div className="projekt-stack-tags">
+                    <span className="stack-tag">React</span>
+                    <span className="stack-tag">Vite</span>
+                    <span className="stack-tag">Cursor</span>
+                  </div>
                   <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">
-                    Portfolio (GitHub)
+                    GitHub
                   </a>
-                </li>
-                <li>
-                  <strong>Lebenslauf als React-App</strong> – Eigenes Projekt, getrennt vom Portfolio. React-basierter Lebenslauf.
-                  <p className="projekt-stack">React</p>
+                </div>
+                <div className="projekt-card">
+                  <h3>Lebenslauf als React-App</h3>
+                  <p>Eigenes Projekt, getrennt vom Portfolio. React-basierter Lebenslauf.</p>
+                  <div className="projekt-stack-tags">
+                    <span className="stack-tag">React</span>
+                  </div>
                   <a href={LEBENSLAUF_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">
-                    Lebenslauf (GitHub)
+                    GitHub
                   </a>
-                </li>
-                <li>
-                  <strong>Datenanalyse mit R</strong> – Arbeiten mit R für statistische Auswertungen und Datenvisualisierung im Studium.
-                  <p className="projekt-stack">R</p>
-                </li>
-              </ul>
+                </div>
+                <div className="projekt-card">
+                  <h3>Datenanalyse mit R</h3>
+                  <p>Arbeiten mit R für statistische Auswertungen und Datenvisualisierung im Studium.</p>
+                  <div className="projekt-stack-tags">
+                    <span className="stack-tag">R</span>
+                  </div>
+                </div>
+                <div className="projekt-card">
+                  <h3>E-Commerce Web App</h3>
+                  <p>Aktuell in Entwicklung – eine vollständige E-Commerce-Lösung mit React und modernen Web-Technologien.</p>
+                  <div className="projekt-stack-tags">
+                    <span className="stack-tag">React</span>
+                    <span className="stack-tag">Vite</span>
+                    <span className="stack-tag">In Entwicklung</span>
+                  </div>
+                </div>
+              </div>
               <p className="projekte-note">
                 Mehr Repositories und Aktivität findest du auf meinem GitHub-Profil.
               </p>

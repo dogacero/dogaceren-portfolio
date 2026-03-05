@@ -169,6 +169,8 @@
   position: relative;
 }
 
+.landing-about,
+.landing-skills,
 .landing-built,
 .landing-contact,
 .landing-links,
@@ -185,6 +187,8 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.landing-about h2,
+.landing-skills h2,
 .landing-built h2 {
   color: #2c3e50;
   font-size: 1.35rem;
@@ -193,11 +197,52 @@
   padding-bottom: 0.5rem;
 }
 
+.landing-about p,
 .landing-built p {
   margin: 0;
   font-size: 1.05rem;
   color: #555;
   line-height: 1.7;
+}
+
+.landing-skills {
+  max-width: 600px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skills-category h3 {
+  font-size: 1rem;
+  color: #667eea;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.12);
+  border-radius: 6px;
+}
+
+.skills-note {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  font-style: italic;
 }
 
 .tech-pills {
@@ -216,6 +261,8 @@
   border-radius: 6px;
 }
 
+.landing-about:hover,
+.landing-skills:hover,
 .landing-built:hover,
 .landing-contact:hover,
 .landing-links:hover,
@@ -225,44 +272,71 @@
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-.landing-projekte h2,
-.landing-projekte .projekte-list {
-  color: #2c3e50;
+.landing-projekte {
+  max-width: 900px;
 }
 
 .landing-projekte h2 {
   font-size: 1.35rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-bottom: 2px solid #667eea;
   padding-bottom: 0.5rem;
+  color: #2c3e50;
+  text-align: center;
 }
 
-.projekte-list {
-  list-style: none;
-  padding: 0;
+.projekte-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.projekt-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.projekt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.projekt-card h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.projekt-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
   margin: 0 0 1rem 0;
 }
 
-.projekte-list li {
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  color: #555;
-  line-height: 1.6;
+.projekt-stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.projekte-list li:last-of-type {
-  margin-bottom: 0;
+.stack-tag {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.12);
+  border-radius: 6px;
 }
 
-.projekt-stack {
-  margin: 0.35rem 0 0.5rem 0;
-  font-size: 0.9rem;
-  color: #7f8c8d;
-}
-
-.projekte-list a {
+.projekt-card .btn {
   margin-top: 0.5rem;
-  display: inline-block;
 }
 
 .projekte-note {
@@ -370,27 +444,36 @@
   padding-bottom: 0.5rem;
 }
 
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contact-list li {
-  margin-bottom: 0.75rem;
+.contact-intro {
   font-size: 1.05rem;
   color: #555;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
 }
 
-.contact-list a {
+.contact-email {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contact-email a {
   color: #667eea;
   text-decoration: none;
   font-weight: 500;
 }
 
-.contact-list a:hover {
+.contact-email a:hover {
   color: #764ba2;
   text-decoration: underline;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .contact-list a:focus-visible,
@@ -491,11 +574,32 @@
     font-size: 0.95rem;
   }
 
+  .landing-about,
+  .landing-skills,
   .landing-built,
   .landing-contact,
   .landing-links,
   .landing-projekte,
   .easter-egg-section {
     padding: 1.25rem 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .projekte-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-buttons .btn {
+    width: 100%;
+    text-align: center;
   }
 }
