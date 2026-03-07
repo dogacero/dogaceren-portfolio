@@ -155,15 +155,6 @@ const LandingPage = () => {
                 >
                   Lebenslauf
                 </a>
-                <a
-                  href={LEBENSLAUF_GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  title="Lebenslauf-Projekt auf GitHub"
-                >
-                  Lebenslauf (GitHub)
-                </a>
               </div>
               <p className="link-note">
                 Code und weitere Projekte sind auf GitHub einsehbar.
