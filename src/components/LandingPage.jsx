@@ -53,7 +53,7 @@ const LandingPage = () => {
             <section className="landing-card landing-about">
               <h2>Über mich</h2>
               <p>
-                Als Studentin der Molekularen und Technischen Medizin verbinde ich Medizin, Technologie und KI – am liebsten dort, wo Bioinformatik und Web‑Entwicklung sich treffen. Ich baue gerne kleine Tools, probiere neue Technologien aus und lasse mich von Themen wie Stammzellbiologie und Datenanalyse inspirieren. In meiner Freizeit entwickle ich Web‑Apps, experimentiere mit KI‑Workflows und freue mich über jedes Projekt, das mich etwas Neues lernen lässt.
+                Als Studentin der Molekularen und Technischen Medizin verbinde ich Medizin, Technologie und KI. Ich entwickle hauptsächlich mit KI‑Tools wie Cursor – von der Idee bis zum fertigen Code. Dabei baue ich gerne kleine Tools und Web‑Apps, probiere neue Technologien aus und lasse mich von Themen wie Bioinformatik und Datenanalyse inspirieren.
               </p>
               <p className="about-humor">
                 Ich mag Projekte, die Spaß machen – und manchmal auch Projekte, die einfach nur funktionieren müssen. 😊
