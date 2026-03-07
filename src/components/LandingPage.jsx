@@ -5,6 +5,7 @@ import './LandingPage.css';
 
 const GITHUB_URL = 'https://github.com/dogacero';
 const LEBENSLAUF_GITHUB_URL = 'https://github.com/JanesMarekFabian/Softwar3.pro';
+const LEBENSLAUF_LIVE_URL = 'https://dogacero.github.io/lebenslauf-react/';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/doga-ceren-bozkurt';
 
 const TABS = [
@@ -145,6 +146,14 @@ const LandingPage = () => {
                   className="btn btn-secondary"
                 >
                   GitHub
+                </a>
+                <a
+                  href={LEBENSLAUF_LIVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  Lebenslauf
                 </a>
               </div>
             </section>
