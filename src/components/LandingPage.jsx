@@ -11,7 +11,6 @@ const LINKEDIN_URL = 'https://www.linkedin.com/in/doga-ceren-bozkurt';
 const TABS = [
   { id: 'start', label: 'Start' },
   { id: 'projekte', label: 'Projekte' },
-  { id: 'links', label: 'Links' },
   { id: 'kontakt', label: 'Kontakt' },
 ];
 
@@ -132,30 +131,43 @@ const LandingPage = () => {
               </div>
               <div className="contact-buttons">
                 <a
-                  href={LINKEDIN_URL}
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
-                  LinkedIn
+                  GitHub-Profil
                 </a>
                 <a
-                  href={GITHUB_URL}
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
                 >
-                  GitHub
+                  LinkedIn
                 </a>
                 <a
                   href={LEBENSLAUF_LIVE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
+                  title="Lebenslauf als React-App ansehen"
                 >
                   Lebenslauf
                 </a>
+                <a
+                  href={LEBENSLAUF_GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                  title="Lebenslauf-Projekt auf GitHub"
+                >
+                  Lebenslauf (GitHub)
+                </a>
               </div>
+              <p className="link-note">
+                Code und weitere Projekte sind auf GitHub einsehbar.
+              </p>
             </section>
           </div>
         )}
@@ -211,44 +223,6 @@ const LandingPage = () => {
           </div>
         )}
 
-        {activeTab === 'links' && (
-          <div className="tab-panel" key="links">
-            <section className="landing-card landing-links">
-              <h2>Links</h2>
-              <div className="link-buttons">
-                <a
-                  href={GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                >
-                  GitHub-Profil
-                </a>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  title="LinkedIn-Profil"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href={LEBENSLAUF_GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary"
-                  title="Lebenslauf-Projekt auf GitHub"
-                >
-                  Lebenslauf (GitHub)
-                </a>
-              </div>
-              <p className="link-note">
-                Code und weitere Projekte sind auf GitHub einsehbar.
-              </p>
-            </section>
-          </div>
-        )}
 
         <footer className="landing-footer">
           <p>Doga Ceren Bozkurt · Portfolio</p>
